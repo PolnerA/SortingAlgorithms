@@ -12,13 +12,20 @@ public class Main
         list[7]=1;
         list[8]=6;
         list[9]=0;
+        System.out.println("Unsorted List:");
         OutputList(list);
         int[] BubbleSortList = BubbleSort(list);
+        System.out.println("Bubble Sort:");
         OutputList(BubbleSortList);
         int[] InsertionSortList = InsertionSort(list);
+        System.out.println("Insertion Sort:");
         OutputList(InsertionSortList);
         int[] SelectionSortList = SelectionSort(list);
+        System.out.println("Selection Sort:");
         OutputList(SelectionSortList);
+        int[] BogoSortList = BogoSort(list);
+        System.out.println("Bogo Sort:");
+        OutputList(BogoSortList);
     }
     public static void OutputList(int[] list)
     {
@@ -89,6 +96,36 @@ public class Main
                 }
             }
             unsorted_list_length--;
+        }
+        return list;
+    }
+    public static int[] BogoSort(int[] list)
+    {
+        boolean sorted = false;
+        // if array is not sorted then shuffle the
+        // array again
+        while (!sorted)
+        {
+            // Math.random() returns a double positive
+            // value, greater than or equal to 0.0 and
+            // less than 1.0.
+            for (int i = 1; i < list.length; i++)
+            {
+                double randomint = Math.random() * i;
+                int temp = list[i];
+                list[i] = list[(int)randomint];
+                list[(int)randomint] = temp;
+            }
+            for (int i = 1; i < list.length; i++)
+            {
+                if (list[i] < list[i - 1])
+                {
+                    sorted = false;
+                    break;
+                }
+                sorted=true;
+            }
+
         }
         return list;
     }
