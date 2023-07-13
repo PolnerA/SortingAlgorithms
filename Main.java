@@ -17,6 +17,8 @@ public class Main
         OutputList(BubbleSortList);
         int[] InsertionSortList = InsertionSort(list);
         OutputList(InsertionSortList);
+        int[] SelectionSortList = SelectionSort(list);
+        OutputList(SelectionSortList);
     }
     public static void OutputList(int[] list)
     {
@@ -67,6 +69,26 @@ public class Main
                 j = j - 1;
             }
             list[j + 1] = key;
+        }
+        return list;
+    }
+    public static int[] SelectionSort(int[] list)
+    {
+        int unsorted_list_length = list.length;
+        for(int i=0;i<list.length;i++)
+        {
+            int minvalue;//value to swap with
+            for(int j=list.length-unsorted_list_length;j<list.length;j++)
+            {
+                if(list[j]<list[i])
+                {
+                    minvalue=list[j];
+                    list[j]=list[i];
+                    list[i]=minvalue;
+                    break;
+                }
+            }
+            unsorted_list_length--;
         }
         return list;
     }
