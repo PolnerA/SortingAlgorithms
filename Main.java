@@ -1,6 +1,7 @@
 public class Main
 {
-    public static void main(String[] args) {
+    public static void main(String[] args)
+    {
         int[] list = new int[10];
         list[0]=5;
         list[1]=2;
@@ -14,17 +15,25 @@ public class Main
         list[9]=0;
         System.out.println("Unsorted List:");
         OutputList(list);
+        long starttime = System.nanoTime();
         int[] BubbleSortList = BubbleSort(list);
-        System.out.println("Bubble Sort:");
+        long endtime = System.nanoTime();
+        System.out.println("Bubble Sort (Took "+(endtime-starttime)+" Nano Seconds):");
         OutputList(BubbleSortList);
+        starttime = System.nanoTime();
         int[] InsertionSortList = InsertionSort(list);
-        System.out.println("Insertion Sort:");
+        endtime = System.nanoTime();
+        System.out.println("Insertion Sort (Took "+(endtime-starttime)+" Nano Seconds):");
         OutputList(InsertionSortList);
+        starttime = System.nanoTime();
         int[] SelectionSortList = SelectionSort(list);
-        System.out.println("Selection Sort:");
+        endtime = System.nanoTime();
+        System.out.println("Selection Sort (Took "+(endtime-starttime)+" Nano Seconds):");
         OutputList(SelectionSortList);
+        starttime = System.nanoTime();
         int[] BogoSortList = BogoSort(list);
-        System.out.println("Bogo Sort:");
+        endtime = System.nanoTime();
+        System.out.println("Bogo Sort (Took "+(endtime-starttime)+" Nano Seconds):");
         OutputList(BogoSortList);
     }
     public static void OutputList(int[] list)
