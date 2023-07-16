@@ -35,6 +35,11 @@ public class Main
         endtime = System.nanoTime();
         System.out.println("Bogo Sort (Took "+(endtime-starttime)+" Nano Seconds):");
         OutputList(BogoSortList);
+        starttime = System.nanoTime();
+        int[] OddEvenSortList = OddEvenSort(list);
+        endtime = System.nanoTime();
+        System.out.println("Odd-Even Sort (Took "+(endtime-starttime)+" Nano Seconds):");
+        OutputList(OddEvenSortList);
     }
     public static void OutputList(int[] list)
     {
@@ -136,6 +141,42 @@ public class Main
             }
 
         }
+        return list;
+    }
+    public static int[] OddEvenSort(int[] list)
+    {
+        boolean isSorted = false; // Initially array is unsorted
+
+        while (!isSorted)
+        {
+            isSorted = true;
+            int temp;
+
+            // Perform Bubble sort on odd indexed element
+            for (int i=1; i<=list.length-2; i=i+2)
+            {
+                if (list[i] > list[i+1])
+                {
+                    temp = list[i];
+                    list[i] = list[i+1];
+                    list[i+1] = temp;
+                    isSorted = false;
+                }
+            }
+
+            // Perform Bubble sort on even indexed element
+            for (int i=0; i<= list.length-2; i=i+2)
+            {
+                if (list[i] > list[i+1])
+                {
+                    temp = list[i];
+                    list[i] = list[i+1];
+                    list[i+1] = temp;
+                    isSorted = false;
+                }
+            }
+        }
+
         return list;
     }
 }
